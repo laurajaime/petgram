@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "petgram-server",
-  "alias": ["petgram-api"],
+  "alias": ["petgram-api-react-platzi"],
   "builds": [{ "src": "index.js", "use": "@vercel/node" }],
   "routes": [{
     "headers": {
