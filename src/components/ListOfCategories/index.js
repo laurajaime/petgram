@@ -6,6 +6,7 @@ import { List, Item } from './styles'
 import { categories } from '../../../api/db.json'
 
 export const ListOfCategories = () => {
+  console.log(categories)
   return (
     <List>
       {
@@ -14,5 +15,3 @@ export const ListOfCategories = () => {
     </List>
   )
 }
-
-
