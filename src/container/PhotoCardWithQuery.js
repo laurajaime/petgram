@@ -4,7 +4,7 @@ import { PhotoCard } from '../components/PhotoCard'
 import { Query } from '@apollo/client/react/components';
 import { gql } from "@apollo/client";
 
-export const query = gql`
+const GET_SINGLE_PHOTO = gql`
   query getSinglePhoto($id:ID!) {
     photo(id:$id) {
       id
@@ -17,15 +17,17 @@ export const query = gql`
   }
 `;
 
-export const PhotoCardWithQuery = ({ id }) => (
-  <Query query={query} variables={{ id }}>
-    {
-      ({ loading, error, data }) => {
-        const { photo } = data || { photo: {} };
+const renderProp =  ({ loading, error, data }) => {
+  if (loading) return <p>Loading....</p>
+  if (error) return  <p>Error!</p>
 
-        return <PhotoCard {...photo} />
-      }
-    }
-    
+  const { photo } = data || { photo: {} };
+
+  return <PhotoCard {...photo} />
+}
+
+export const PhotoCardWithQuery = ({ id }) => (
+  <Query query={GET_SINGLE_PHOTO} variables={{ id }}>
+    { renderProp }
   </Query>
 )
