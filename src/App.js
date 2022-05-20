@@ -4,11 +4,20 @@ import { GlobalStyle } from './styles/GlobalStyles'
 import { ListOfPhotoCards } from './components/ListOfPhotoCards'
 import { Logo } from './components/Logo'
 
-export const App = () => (
-  <div>
-    <GlobalStyle />
-    <Logo />
-    <ListOfCategories />
-    <ListOfPhotoCards />
-  </div>
+export const App = () => {
+  
+  return (
+    <div>
+      <GlobalStyle />
+      <Logo />
+      <ListOfCategories />
+      <ListOfPhotoCards categoryId={3} />
+    </div>
+  )
+}
+  
+  
+  
+  
+  
 )
