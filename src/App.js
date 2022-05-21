@@ -9,16 +9,12 @@ import { GlobalStyle } from './styles/GlobalStyles'
 
 import { Logo } from './components/Logo'
 import { Home } from './pages/Home'
-import { Detail } from './pages/Detail'
 import { Favs } from './pages/Favs';
 import { User } from './pages/User';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
 
 import { NavBar } from './components/Navbar';
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false })
-}
+import Context from './Context';
 
 export const App = () => {
   return (
@@ -33,7 +29,7 @@ export const App = () => {
           <Route path='/user' element={<User />} />
         </Routes>
        
-        <UserLogged>
+        <Context.Consumer>
           {
             ({ isAuth }) => 
               isAuth
@@ -46,7 +42,7 @@ export const App = () => {
                 <Route path='/user' element={<NotRegisteredUser />} />
               </Routes>
           }            
-        </UserLogged>
+        </Context.Consumer>
         <NavBar />
       </BrowserRouter>
     </>
