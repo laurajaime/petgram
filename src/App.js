@@ -16,18 +16,20 @@ export const App = () => {
 
   return (
     <div>
-      <GlobalStyle />
-      <Logo />
-      {
-        detailID
-        ? <PhotoCardWithQuery id={detailID}/> 
-        : (<BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Home/>} />
-              <Route path='/pet/:id' element={<Home/>} />
-            </Routes>
-        </BrowserRouter>)
-      }
+      <BrowserRouter>
+        <GlobalStyle />
+        <Logo />
+        {
+          detailID
+          ? <PhotoCardWithQuery id={detailID}/> 
+          : (
+              <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/pet/:id' element={<Home/>} />
+              </Routes>
+          )
+        }
+      </BrowserRouter>
     </div>
   )
 }
