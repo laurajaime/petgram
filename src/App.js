@@ -10,11 +10,9 @@ import { GlobalStyle } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
+import { NavBar } from './components/Navbar';
 
 export const App = () => {
-  const urlParams = new URLSearchParams(location.search);
-  const detailId = urlParams.get('detail');
-
   return (
     <>
       <BrowserRouter>
@@ -25,6 +23,7 @@ export const App = () => {
           <Route path='/pet/:id' element={<Home />} />
           <Route path='/detail/:detailId' element={<Detail />} />
         </Routes>
+        <NavBar />
       </BrowserRouter>
     </>
   )
